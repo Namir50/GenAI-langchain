@@ -10,3 +10,17 @@ result = model.invoke("What is the capital of india")
 
 print(result)
 print(result.content)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
