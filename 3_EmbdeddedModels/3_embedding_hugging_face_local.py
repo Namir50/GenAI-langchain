@@ -8,4 +8,4 @@ text = 'Delhi is the capital of india'
 
 vector = embedding.embed_query(text)
 
-print(str(vector))
+print(str(vector))  
