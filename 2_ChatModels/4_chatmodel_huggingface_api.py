@@ -13,5 +13,5 @@ llm = HuggingFaceEndpoint(
 )
 model = ChatHuggingFace(llm = llm)
 
-result = model.invoke("Who is mahatma gandh")
+result = model.invoke("Who is mahatma gandhi")
 print(result.content)
