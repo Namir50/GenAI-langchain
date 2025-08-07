@@ -5,7 +5,7 @@ from langchain_core.prompts import PromptTemplate
 
 load_dotenv
 
-model = ChatOpenAI(model = 'gpt-4', temperature = 0.5)
+model = ChatOpenAI(model = 'gpt-3.5-turbo', temperature = 0.5)
 
 st.header = ('Research Tool')
 
@@ -36,4 +36,4 @@ prompt = template.invoke({
 
 if st.button("Summarize"):
     result = model.invoke(prompt)
-    print(result.content)
+    st.write(result.content)
