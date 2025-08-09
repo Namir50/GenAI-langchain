@@ -1,13 +1,14 @@
-from langchain_openai import ChatOpenAI
+from langchain_google_genai import ChatGoogleGenerativeAI
 from dotenv import load_dotenv
 import streamlit as st
 from langchain_core.prompts import PromptTemplate
 
-load_dotenv
+load_dotenv()
 
-model = ChatOpenAI(model = 'gpt-3.5-turbo', temperature = 0.5)
+model = ChatGoogleGenerativeAI(model='gemini-2.5-pro', temperature = 0.5)
 
 st.header = ('Research Tool')
+
 
 paper_input = st.selectbox("Select Research paper name", ['Select..','Attention is all you need',
                                                           'BERT: Pre-training of deep bidirectional transformer',
@@ -25,7 +26,8 @@ length_input = st.selectbox('Select explanation length',['Short',
 
 
 template = PromptTemplate(
-    input_variables=['paper_input','style_input','length_input']  
+    input_variables=['paper_input','style_input','length_input'],
+    template="Summarize the research paper '{paper_input}' in a {style_input} style with a {length_input} length."
 )
 
 prompt = template.invoke({
