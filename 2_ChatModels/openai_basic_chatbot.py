@@ -20,7 +20,7 @@ chat_history = [
 
 while True:
     user_input = input("You: ")
-    chat_history.append(HumanMessage(content=user_input))  
+    chat_history.append(HumanMessage(content=user_input))  #human query or prompt
     if user_input.lower() == 'exit':
         break
     result = model.invoke(chat_history)  #invoke function is flexible enough too take single message as well as list of messages
