@@ -1,4 +1,5 @@
 #pydantic helps in explaining what the data type should be when error is thrown
+#pydantic is usually used when we need data validation, default values and we want automatic type conversion
 from pydantic import BaseModel, EmailStr, Field
 from typing import Optional
 
