@@ -23,7 +23,6 @@ I’ve been using the X100 headphones for about three weeks. The sound quality i
 However, the ear cups can feel uncomfortable after long use, and the design is a bit bulky if you’re planning to carry them around daily.
 Pros:
 Great sound quality
-
 Cons:
 Can get uncomfortable after long sessions
 Noise cancellation not as strong as premium models
