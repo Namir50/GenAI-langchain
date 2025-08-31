@@ -26,7 +26,7 @@ Crisp, modern graphics
 Ergonomic and responsive controller
 User-friendly interface with seamless online features
 
-Cons:
+Cons:   
 Limited storage capacity, costly to upgrade
 Occasional frame drops in demanding games
 Noticeable fan noise during heavy gameplay
