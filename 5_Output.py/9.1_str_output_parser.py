@@ -1,13 +1,10 @@
-from langchain_huggingface import ChatHuggingFace, HuggingFaceEndpoint
+from langchain_google_genai import ChatGoogleGenerativeAI
 from dotenv import load_dotenv
 from langchain_core.prompts import PromptTemplate
 load_dotenv()
 
-llm = HuggingFaceEndpoint(
-    repo_id="TinyLlama/TinyLlama-1.1B-Chat-v1.0",
-    task = "text-generation"
-)
-model = ChatHuggingFace(llm = llm)
+
+model = ChatGoogleGenerativeAI(model= 'gemini-2.5-pro')
 
 #prompt1
 template1 = PromptTemplate(
