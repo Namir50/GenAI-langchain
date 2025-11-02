@@ -24,17 +24,28 @@ prompt1 = PromptTemplate(
     partial_variables={'format_instruction':parser2.get_format_instructions()}
 )
 
+classifier_chain = prompt1 | model | parser2
+
+print(classifier_chain.invoke({'feedback':'This is a terrible phone'}).sentiment)
+
 prompt2 = PromptTemplate(
-    template = 'Write an appropriate response to this postive feedback \n {feedback}',
+    template = 'You are a customer support agent. for this positive feedback, write a short, polite, empathetic response (2–3 sentences) \n {feedback}',
     input_variables=['feedback']
 )
 
 prompt3 = PromptTemplate(
-    template = 'Write an appropriate response to this negative feedback \n {feedback}',
+    template = 'You are a customer support agent. for this negative feedback, write a short, polite, empathetic response (2–3 sentences) \n {feedback}',
     input_variables=['feedback']
 )
 
-classifier_chain = prompt1 | model | parser2
+branch_chain = RunnableBranch(
+    (lambda x:x.sentiment == 'positive', prompt2 | model | parser),
+    (lambda x:x.sentiment == 'negative', prompt3 | model | parser),
+    RunnableLambda(lambda x: 'Could not find the sentiment')
+)
 
-result = classifier_chain.invoke({'feedback':'This is a terrible smartphone'}).sentiment
+chain = classifier_chain | branch_chain
 
+result = chain.invoke({'feedback':'This is a wonderful phone which i purchased'})
+
+print(result)
